@@ -1,0 +1,10 @@
+.popup__button-save {
+    min-width: 238px;
+    min-height: 46px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    background-color: #000000;
+}

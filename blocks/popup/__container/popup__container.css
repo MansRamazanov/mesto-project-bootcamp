@@ -1,0 +1,10 @@
+.popup__container {
+    z-index: 2;
+    background-color: white;
+    max-width: 282px;
+    min-height: 322px;
+    position: fixed;
+    left: calc(50vw - (282px / 2));
+    top: calc(50vh - (322px / 2));
+    border-radius: 10px;
+}

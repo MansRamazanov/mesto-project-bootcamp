@@ -1,0 +1,22 @@
+.footer {
+    margin: 0 auto;
+    max-width: 282px;
+    min-height: 78px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 620px) {
+    .footer {
+        max-width: 582px;
+        min-height: 121px;
+    }
+}
+
+@media (min-width: 900px) {
+    .footer {
+        max-width: 880px;
+        min-height: 145px;
+    }
+}

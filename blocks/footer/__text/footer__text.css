@@ -1,0 +1,23 @@
+.footer__text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #545454;
+}
+
+@media (min-width: 620px) {
+    .footer__text {
+        font-size: 16px;
+        line-height: 19px;
+        padding-top: 10px;
+    }
+}
+
+@media (min-width: 900px) {
+    .footer__text {
+        padding-top: 20px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+}

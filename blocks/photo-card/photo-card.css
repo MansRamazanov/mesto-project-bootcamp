@@ -1,0 +1,13 @@
+.photo-card {
+    margin: 0 auto;
+    max-width: 282px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 620px) {
+    .photo-card {
+        margin-bottom: 0;
+    }
+}

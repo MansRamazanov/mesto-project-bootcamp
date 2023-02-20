@@ -1,0 +1,28 @@
+.profile {
+    margin: 0 auto;
+    padding: 0 19px 36px 19px;
+    display: flex;
+    flex-direction: column; 
+}
+
+@media (min-width: 620px) {
+    .profile {
+        max-width: 500px;
+        padding: 0 19px 42px 19px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+        "profile-img profile-info "
+        "button  button";
+        align-items: center;
+    }
+}
+
+@media (min-width: 900px) {
+    .profile {
+        max-width: 880px;
+        padding: 0 0 47px 0;
+        display: flex;
+        flex-direction: row;
+    }
+}

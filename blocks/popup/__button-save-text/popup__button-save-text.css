@@ -1,3 +1,16 @@
 .popup__button-save-text {
     color: white;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+}
+
+
+@media (min-width: 620px) {
+    .popup__button-save-text {
+        font-size: 18px;
+        line-height: 22px;
+    }
 }

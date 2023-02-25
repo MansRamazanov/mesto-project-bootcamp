@@ -4,12 +4,23 @@
     top: -36px;
     min-width: 20px;
     min-height: 20px;
-    background-image: url(../../../images/Close\ Icon.svg);
+    background-image: url(../../../images/Close_Icon.svg);
     background-size: cover;
-    background-color: black;
+    background-color: transparent;
+    border: none;
+    
 }
 
 .popup__close-button:hover {
-    opacity: 0.3;
+    opacity: 0.5;
     transition: 0.4s;
+}
+
+@media (min-width: 620px) {
+    .popup__close-button {
+        right: -36px;
+        top: -36px;
+        min-width: 32px;
+        min-height: 32px;
+    }
 }

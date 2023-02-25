@@ -8,3 +8,13 @@
     top: calc(50vh - (322px / 2));
     border-radius: 10px;
 }
+
+@media (min-width: 620px) {
+    .popup__container {
+        min-width: 430px;
+        min-height: 330px;
+        left: calc(50vw - (430px / 2));
+        top: calc(50vh - (330px / 2));
+        border-radius: 10px;
+    }
+}

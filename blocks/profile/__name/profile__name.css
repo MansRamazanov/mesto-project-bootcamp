@@ -1,10 +1,15 @@
 .profile__name {
+    padding-left: 35px;
     margin: 0 auto;
-    position: relative;
     font-style: normal;
     font-weight: 500;
     font-size: 27px;
     line-height: 33px;
+    text-align: center;
+    display: inline;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     text-align: center;
 }
 
@@ -12,6 +17,7 @@
     .profile__name {
         font-size: 34px;
         line-height: 40px;
+        padding-left: 0;
     }
 }
 

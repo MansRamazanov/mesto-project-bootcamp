@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./pages/index.css" />
-    <title>Mestogram</title>
+    <title>Mesto</title>
   </head>
   <body class="page">
     <header class="header">
@@ -23,17 +23,12 @@
           class="profile__img"
         />
         <div class="profile__info">
-          <h1 class="profile__name">
-            Жак-Ив Кусто
-            <img
-              src="./images/Edit_Button.svg"
-              alt="кнопка редактировать"
-              class="profile__edit-button-img"
-            />
-          </h1>
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button">
+          </button>
           <p class="profile__about">Исследователь океана</p>
         </div>
-        <button class="profile__add-button">
+        <button class="profile__add-button"  type="button">
           <img
             src="./images/add_button.svg"
             alt="кнопка добавить"
@@ -41,82 +36,65 @@
           />
         </button>
       </section>
-      <section class="popup popup_opened">
-        <div class="popup__container">
-          <button class="popup__close-button">
-          </button>
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form">
-            <input type="text" placeholder="Введите ваше имя" class="popup__text" />
-            <input type="text" placeholder="Расскажите о себе" class="popup__text" />
-            <button type="submit" class="popup__button-save">Сохранить</button>
-          </form>
-        </div>
+
+      <section class="cards">
+        
       </section>
-      <article class="cards">
-        <div class="photo-card">
-          <img
-            src="./images/карачаевск.png"
-            alt="Карачаевск"
-            class="photo-card__img"
-          />
-          <div class="photo-card__info">
-            <h2 class="photo-card__title">Карачаевск</h2>
-            <button class="photo-card__button-like"></button>
-          </div>
-        </div>
-        <div class="photo-card">
-          <img
-            src="./images/гора_эльбрус.png"
-            alt="Гора Эльбрус"
-            class="photo-card__img"
-          />
-          <div class="photo-card__info">
-            <h2 class="photo-card__title">Гора Эльбрус</h2>
-            <button class="photo-card__button-like"></button>
-          </div>
-        </div>
-        <div class="photo-card">
-          <img src="./images/домбай.png" alt="Домбай" class="photo-card__img" />
-          <div class="photo-card__info">
-            <h2 class="photo-card__title">Домбай</h2>
-            <button class="photo-card__button-like"></button>
-          </div>
-        </div>
-        <div class="photo-card">
-          <img
-            src="./images/гора_эльбрус.png"
-            alt="Гора Эльбрус"
-            class="photo-card__img"
-          />
-          <div class="photo-card__info">
-            <h2 class="photo-card__title">Гора Эльбрус</h2>
-            <button class="photo-card__button-like"></button>
-          </div>
-        </div>
-        <div class="photo-card">
-          <img src="./images/домбай.png" alt="Домбай" class="photo-card__img" />
-          <div class="photo-card__info">
-            <h2 class="photo-card__title">Домбай</h2>
-            <button class="photo-card__button-like"></button>
-          </div>
-        </div>
-        <div class="photo-card">
-          <img
-            src="./images/карачаевск.png"
-            alt="Карачаевск"
-            class="photo-card__img"
-          />
-          <div class="photo-card__info">
-            <h2 class="photo-card__title">Карачаевск</h2>
-            <button class="photo-card__button-like"></button>
-          </div>
-        </div>
-      </article>
     </main>
     <footer class="footer">
       <p class="footer__text">&#169; 2023 Mesto Russia</p>
     </footer>
-    <script src="./script/script.js"></script>
+
+    <section class="popup popup_type_edit-profile">
+      <div class="popup__container">
+        <button class="popup__close-button"  type="button">
+        </button>
+        <h3 class="popup__title">Редактировать профиль</h2>
+        <form action="#" class="popup__form" id="popup-edit-profile-form">
+          <input type="text" placeholder="Введите ваше имя" name="name" class="popup__text popup-edit-profile__field-name" />
+          <input type="text" placeholder="Расскажите о себе" name="about" class="popup__text popup-edit-profile__field-about" />
+          <button type="submit" class="popup__button-save">Сохранить</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="popup popup_type_add-card">
+      <div class="popup__container">
+        <button class="popup__close-button"  type="button">
+        </button>
+        <h3 class="popup__title">Новое место</h2>
+        <form action="#" class="popup__form" id="popup-add-card-form">
+          <input type="text" placeholder="Название" name="name" class="popup__text popup-add-card__field-title" />
+          <input type="url" placeholder="Ссылка на картинку" name="about" class="popup__text popup-add-card__field-link" />
+          <button type="submit" class="popup__button-save">Сохранить</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="popup popup_type_open-card">
+      <figure class="popup__open-card">
+        <button class="popup__close-button"  type="button"></button>
+        <img src="" alt="Фото" class="popup__open-img">
+        <figcaption class="popup__caption"></figcaption>
+      </figure>
+    </section>
+
+
+
+    <template id="card-template">
+      <div class="photo-card">
+        <img
+          src=""
+          alt="Фото"
+          class="photo-card__img"
+        />
+        <button class="photo-card__button-delete" type="button"></button>
+        <div class="photo-card__info">
+          <h2 class="photo-card__title"></h2>
+          <button class="photo-card__button-like"  type="button"></button> 
+        </div>
+      </div>
+    </template>
+    <script defer src="./scripts/script.js"></script>
   </body>
 </html>

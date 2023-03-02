@@ -6,12 +6,17 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
 }
 
 @media (min-width: 620px) {
     .profile__about {
         font-size: 16px;
         line-height: 20px;
+        text-align: start;
     }
 }
 

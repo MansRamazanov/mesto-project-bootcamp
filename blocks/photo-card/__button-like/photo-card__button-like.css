@@ -1,6 +1,6 @@
 .photo-card__button-like {
     margin: 0 20px;
-    background-color: white;
+    background-color: transparent;
     background-image: url(../../../images/like_logo.svg);
     background-size: contain;
     background-repeat: no-repeat;
@@ -13,4 +13,5 @@
 .photo-card__button-like:hover {
     opacity: 0.5;
     transition: 0.4s;
+    cursor: pointer;
 }

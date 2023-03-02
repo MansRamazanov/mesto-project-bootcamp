@@ -1,3 +1,5 @@
 .photo-card__img {
     display: block;
+    min-width: 282px;
+    max-height: 282px;
 }

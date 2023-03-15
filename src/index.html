@@ -4,13 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <title>Mesto</title>
   </head>
   <body class="page">
     <header class="header">
       <img
-        src="./images/лого_Место.svg"
+        src= "<%=require('./images/лого_Место.svg')%>"
         alt="Логотип Место"
         class="header__logo"
       />
@@ -18,7 +17,7 @@
     <main>
       <section class="profile">
         <img
-          src="./images/Жак-Ив_Кусто.png"
+          src="<%=require('./images/Жак-Ив_Кусто.png')%>"
           alt="аватар профиля"
           class="profile__img"
         />
@@ -30,7 +29,7 @@
         </div>
         <button class="profile__add-button"  type="button">
           <img
-            src="./images/add_button.svg"
+            src="<%=require('./images/add_button.svg')%>"
             alt="кнопка добавить"
             class="profile__add-button-img"
           />
@@ -50,9 +49,11 @@
         <button class="popup__close-button"  type="button">
         </button>
         <h3 class="popup__title">Редактировать профиль</h2>
-        <form action="#" class="popup__form" id="popup-edit-profile-form">
-          <input type="text" placeholder="Введите ваше имя" name="name" class="popup__text popup-edit-profile__field-name" />
-          <input type="text" placeholder="Расскажите о себе" name="about" class="popup__text popup-edit-profile__field-about" />
+        <form action="#" class="popup__form" id="popup-edit-profile-form" novalidate>
+          <input type="text" placeholder="Введите ваше имя" name="name" id="name-input" class="popup__text popup-edit-profile__field-name" minlength="2" maxlength="40" required/>
+          <span class="name-input-error popup__text-error"></span>
+          <input type="text" placeholder="Расскажите о себе" name="about" id="about-input" class="popup__text popup-edit-profile__field-about" minlength="2" maxlength="200" required/>
+          <span class="about-input-error popup__text-error"></span>
           <button type="submit" class="popup__button-save">Сохранить</button>
         </form>
       </div>
@@ -63,9 +64,11 @@
         <button class="popup__close-button"  type="button">
         </button>
         <h3 class="popup__title">Новое место</h2>
-        <form action="#" class="popup__form" id="popup-add-card-form">
-          <input type="text" placeholder="Название" name="name" class="popup__text popup-add-card__field-title" />
-          <input type="url" placeholder="Ссылка на картинку" name="about" class="popup__text popup-add-card__field-link" />
+        <form action="#" class="popup__form" id="popup-add-card-form" novalidate>
+          <input type="text" placeholder="Название" name="place" id="place-input" class="popup__text popup-add-card__field-title" minlength="2" maxlength="30" required/>
+          <span class="place-input-error popup__text-error"></span>
+          <input type="url" placeholder="Ссылка на картинку" name="link" id="link-input" class="popup__text popup-add-card__field-link" required/>
+          <span class="link-input-error popup__text-error"></span>
           <button type="submit" class="popup__button-save">Сохранить</button>
         </form>
       </div>
@@ -95,6 +98,5 @@
         </div>
       </div>
     </template>
-    <script defer src="./scripts/script.js"></script>
-  </body>
+    <script defer type="module" src="./script.js"></script>
 </html>

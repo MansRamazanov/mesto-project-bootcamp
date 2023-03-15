@@ -12,3 +12,7 @@
         margin-bottom: 0;
     }
 }
+
+.photo-card:hover {
+    cursor: pointer;
+}

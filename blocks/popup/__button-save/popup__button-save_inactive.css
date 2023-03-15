@@ -1,0 +1,10 @@
+.popup__button-save_inactive {
+    color:#C4C4C4;
+    background-color: white;
+    border: 1px solid #C4C4C4;
+}
+
+.popup__button-save_inactive:hover {
+    border: 1px solid #C4C4C4;
+    background-color:rgb(255, 255, 255);
+}

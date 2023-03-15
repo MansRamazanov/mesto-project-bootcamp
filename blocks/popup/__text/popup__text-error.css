@@ -1,0 +1,15 @@
+.popup__text-error {
+    color: red;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    width: 238px;
+    min-height: 30px;
+}
+
+@media (min-width: 620px) {
+    .popup__text-error {
+        width: 358px;
+    }
+}

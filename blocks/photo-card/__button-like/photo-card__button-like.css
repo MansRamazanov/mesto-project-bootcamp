@@ -1,7 +1,7 @@
 .photo-card__button-like {
     margin: 0 20px;
     background-color: transparent;
-    background-image: url(../../../images/like_logo.svg);
+    background-image: url(../../../src/images/like_logo.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

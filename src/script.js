@@ -1,5 +1,5 @@
 import "./index.css";
-import {formElement, formInput, showInputError, hasInvalidInput, isValid} from './components/validate.js';
+import {enableValidation} from './components/validate.js';
 import {addCard} from './components/card.js';
 import {closePopup, closePopupOverlay, openPopup} from './components/modal.js';
 
@@ -51,6 +51,15 @@ const initialCards = [
   },
 ];
 
+const config = {
+  formElement: '.popup__form',
+  formInput: '.popup__text',
+  buttonElement: '.popup__button-save',
+  inactiveButtonClass: 'popup__button-save_inactive',
+  inputErrorClass: 'popup__text_type_error',
+  errorClass: 'form__input-error_active'
+}
+
 initialCards.forEach(function (card) {
   addCard(card.name, card.link);
 });
@@ -67,45 +76,7 @@ function submitNameForm() {
   closePopup(popupEditProfile);
 }
 
-function toggleButtonSubmit(inputList, buttonElement) {
-  if (hasInvalidInput(inputList)) {
-    buttonElement.disabled = true;
-    buttonElement.classList.add("popup__button-save_inactive");
-  } else {
-    buttonElement.disabled = false;
-    buttonElement.classList.remove("popup__button-save_inactive");
-  }
-}
-
-enableValidation();
-
-function enableValidation() {
-  const formList = Array.from(document.querySelectorAll(".popup__form"));
-
-  formList.forEach((formElement) => {
-    setInputEventListeners(formElement);
-  });
-}
-
-
-function setInputEventListeners(formElement) {
-  const inputList = Array.from(formElement.querySelectorAll(".popup__text"));
-  const buttonElement = formElement.querySelector(".popup__button-save");
-  toggleButtonSubmit(inputList, buttonElement);
-
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", () => {
-      isValid(formElement, inputElement);
-      toggleButtonSubmit(inputList, buttonElement);
-    });
-  });
-}
-
-
-
-
-
-
+enableValidation(config);
 
 popupList.forEach((popup) => {
   popup.addEventListener("mousedown", closePopupOverlay);
@@ -127,5 +98,5 @@ popupAddCardForm.addEventListener("submit", (event) => {
   event.preventDefault();
   addCard(fieldTitlePopupAdd.value, fieldLinkPopupAdd.value);
   closePopup(popupAddCard);
-  evt.target.reset();
+  event.target.reset();
 });

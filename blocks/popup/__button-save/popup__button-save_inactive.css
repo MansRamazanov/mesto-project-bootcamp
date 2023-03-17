@@ -5,6 +5,7 @@
 }
 
 .popup__button-save_inactive:hover {
+    cursor: auto;
     border: 1px solid #C4C4C4;
     background-color:rgb(255, 255, 255);
 }

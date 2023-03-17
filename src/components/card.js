@@ -1,3 +1,5 @@
+import { openPopup } from "./modal";
+
 const popupCardOpen = document.querySelector(".popup_type_open-card");
 const popupCardOpenImage = popupCardOpen.querySelector(".popup__open-img");
 const popupCardOpenCaption = popupCardOpen.querySelector(".popup__caption");
@@ -18,17 +20,20 @@ function createCard(name, imageUrl) {
   imgElement.src = imageUrl;
   imgElement.alt = name;
 
-  buttonLikeCard.addEventListener("click", setLike);
+  buttonLikeCard.addEventListener("click", () => setLike(buttonLikeCard));
 
-  buttonDeleteCard.addEventListener("click", deleteCard);
+  buttonDeleteCard.addEventListener("click", () => deleteCard(cardElement));
 
-  imgElement.addEventListener("click", () => {
-    openPopup(popupCardOpen);
-    popupCardOpenImage.src = imgElement.src;
-    popupCardOpenImage.alt = titleElement.textContent;
-    popupCardOpenCaption.textContent = titleElement.textContent;
-  });
+  imgElement.addEventListener("click", () => openImagePopup(name, imageUrl));
+  
   return cardElement;
+}
+
+function openImagePopup(name, imageUrl) {
+  openPopup(popupCardOpen);
+  popupCardOpenImage.src = imageUrl;
+  popupCardOpenImage.alt = name;
+  popupCardOpenCaption.textContent = name;
 }
 
 export function addCard(name, imageUrl) {
@@ -36,10 +41,10 @@ export function addCard(name, imageUrl) {
   cardContainer.prepend(card);
 }
 
-function setLike(event) {
-  event.target.classList.toggle("photo-card__button-like_active");
+function setLike(buttonLikeCard) {
+  buttonLikeCard.target.classList.toggle("photo-card__button-like_active");
 }
 
-function deleteCard(event) {
-  event.target.closest(".photo-card").remove();
+function deleteCard(cardElement) {
+  cardElement.target.closest(".photo-card").remove();
 }

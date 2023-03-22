@@ -1,0 +1,25 @@
+.pofile__avatar-container {
+ max-width: 170px;
+ max-height: 120px;
+ margin: 0 auto;
+ margin-bottom: 22px;
+}
+
+@media (min-width: 620px) {
+    .pofile__avatar-container {
+        margin-bottom: 36px;
+    }
+}
+
+@media (min-width: 900px) {
+    .pofile__avatar-container {
+        margin: 0;
+        margin-right: 25px;
+    }
+}
+
+.pofile__avatar-container:hover {
+    background-image: url(../../../src/images/set_avatar_icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}

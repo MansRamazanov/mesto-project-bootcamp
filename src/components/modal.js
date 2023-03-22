@@ -1,6 +1,6 @@
 export function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closePopupByEsc)
+  document.removeEventListener("keydown", closePopupByEsc);
 }
 
 export function closePopupOverlay(event) {

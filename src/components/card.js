@@ -1,13 +1,16 @@
 import { openPopup } from "./modal";
+import { deleteCardFromServer } from "./api";
+import { toggleLike } from "../script.js";
 
 const popupCardOpen = document.querySelector(".popup_type_open-card");
 const popupCardOpenImage = popupCardOpen.querySelector(".popup__open-img");
 const popupCardOpenCaption = popupCardOpen.querySelector(".popup__caption");
 const cardTemplateElement = document.getElementById("card-template");
-const cardPrototypeElement = cardTemplateElement.content.querySelector(".photo-card");
+const cardPrototypeElement =
+  cardTemplateElement.content.querySelector(".photo-card");
 const cardContainer = document.querySelector(".cards");
 
-function createCard(name, imageUrl) {
+export function createCard(card, userId) {
   const cardElement = cardPrototypeElement.cloneNode(true);
   const titleElement = cardElement.querySelector(".photo-card__title");
   const imgElement = cardElement.querySelector(".photo-card__img");
@@ -15,36 +18,49 @@ function createCard(name, imageUrl) {
   const buttonDeleteCard = cardElement.querySelector(
     ".photo-card__button-delete"
   );
+  const likeCounter = cardElement.querySelector(".photo-card__like-counter");
+  const likes = card.likes;
+  likes.forEach((obj) => {
+    if (obj._id === userId) {
+      buttonLikeCard.classList.add("photo-card__button-like_active");
+    }
+  });
 
-  titleElement.textContent = name;
-  imgElement.src = imageUrl;
-  imgElement.alt = name;
+  titleElement.textContent = card.name;
+  imgElement.src = card.link;
+  imgElement.alt = card.name;
+  likeCounter.textContent = card.likes.length;
 
-  buttonLikeCard.addEventListener("click", () => setLike(buttonLikeCard));
+  if (card.owner._id == userId) {
+    buttonDeleteCard.addEventListener("click", (event) => {
+      deleteCardFromServer(card._id);
+      deleteCard(event);
+    });
+  } else {
+    buttonDeleteCard.remove();
+  }
 
-  buttonDeleteCard.addEventListener("click", () => deleteCard(cardElement));
+  buttonLikeCard.addEventListener("click", () =>
+    toggleLike(buttonLikeCard, card._id, likeCounter)
+  );
 
-  imgElement.addEventListener("click", () => openImagePopup(name, imageUrl));
-  
+  imgElement.addEventListener("click", () => openImagePopup(card));
+
   return cardElement;
 }
 
-function openImagePopup(name, imageUrl) {
+export function addCard(card, userId) {
+  const newCard = createCard(card, userId);
+  cardContainer.prepend(newCard);
+}
+
+function openImagePopup(card) {
   openPopup(popupCardOpen);
-  popupCardOpenImage.src = imageUrl;
-  popupCardOpenImage.alt = name;
-  popupCardOpenCaption.textContent = name;
+  popupCardOpenImage.src = card.link;
+  popupCardOpenImage.alt = card.name;
+  popupCardOpenCaption.textContent = card.name;
 }
 
-export function addCard(name, imageUrl) {
-  const card = createCard(name, imageUrl);
-  cardContainer.prepend(card);
-}
-
-function setLike(buttonLikeCard) {
-  buttonLikeCard.target.classList.toggle("photo-card__button-like_active");
-}
-
-function deleteCard(cardElement) {
-  cardElement.target.closest(".photo-card").remove();
+function deleteCard(event) {
+  event.target.closest(".photo-card").remove();
 }

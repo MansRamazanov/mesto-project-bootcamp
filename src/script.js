@@ -78,6 +78,9 @@ function addNewCard(event) {
     .then((res) => {
       addCard(res, res.owner._id);
       closePopup(popupAddCard);
+      popupAddCardForm.reset();
+      event.submitter.disabled = true;
+      event.submitter.classList.add(validateConfig.inactiveButtonClass);
     })
     .catch((err) => {
       console.log(err);
@@ -94,6 +97,9 @@ function addUserAvatar(event) {
     .then((res) => {
       buttonSetAvatar.src = res.avatar;
       closePopup(popupSetAvatar);
+      event.target.reset();
+      event.submitter.disabled = true;
+      event.submitter.classList.add(validateConfig.inactiveButtonClass);
     })
     .catch((err) => {
       console.log(err);
@@ -106,22 +112,22 @@ function addUserAvatar(event) {
 export function toggleLike(buttonLikeCard, cardId, likeCounter) {
   if (buttonLikeCard.classList.contains("photo-card__button-like_active")) {
     deleteLikeToServer(cardId)
-    .then((res) => {
-      likeCounter.textContent = res.likes.length;
-      buttonLikeCard.classList.remove("photo-card__button-like_active");
-    })
-    .catch((err) => {
-      console.log(err);
-    })
+      .then((res) => {
+        likeCounter.textContent = res.likes.length;
+        buttonLikeCard.classList.remove("photo-card__button-like_active");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   } else {
     putLikeToServer(cardId)
-    .then((res) => {
-      likeCounter.textContent = res.likes.length;
-      buttonLikeCard.classList.add("photo-card__button-like_active");
-    })
-    .catch((err) => {
-      console.log(err);
-    })
+      .then((res) => {
+        likeCounter.textContent = res.likes.length;
+        buttonLikeCard.classList.add("photo-card__button-like_active");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 }
 

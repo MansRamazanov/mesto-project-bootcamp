@@ -33,8 +33,14 @@ export function createCard(card, userId) {
 
   if (card.owner._id == userId) {
     buttonDeleteCard.addEventListener("click", (event) => {
-      deleteCardFromServer(card._id);
-      deleteCard(event);
+      deleteCardFromServer(card._id)
+      .then(() => {
+        deleteCard(event);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      
     });
   } else {
     buttonDeleteCard.remove();

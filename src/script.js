@@ -78,7 +78,7 @@ function addNewCard(event) {
     .then((res) => {
       addCard(res, res.owner._id);
       closePopup(popupAddCard);
-      popupAddCardForm.reset();
+      event.target.reset();
       event.submitter.disabled = true;
       event.submitter.classList.add(validateConfig.inactiveButtonClass);
     })

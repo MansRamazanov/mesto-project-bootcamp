@@ -18,9 +18,6 @@ export function getUserProfile() {
     headers: config.headers,
   })
     .then(handleResponse)
-    .catch((err) => {
-      console.log(err);
-    });
 }
 
 export function getCardsArray() {
@@ -28,9 +25,6 @@ export function getCardsArray() {
     headers: config.headers,
   })
     .then(handleResponse)
-    .catch((err) => {
-      console.log(err);
-    });
 }
 
 export function patchUserAvatar(avatarLink) {
@@ -42,9 +36,6 @@ export function patchUserAvatar(avatarLink) {
     }),
   })
     .then(handleResponse)
-    .catch((err) => {
-      console.log(err);
-    });
 }
 
 export function patchUserProfile(userName, userAbout) {
@@ -57,9 +48,6 @@ export function patchUserProfile(userName, userAbout) {
     }),
   })
     .then(handleResponse)
-    .catch((err) => {
-      console.log(err);
-    });
 }
 
 export function postNewCard(placeName, placeLink) {
@@ -72,9 +60,6 @@ export function postNewCard(placeName, placeLink) {
     }),
   })
     .then(handleResponse)
-    .catch((err) => {
-      console.log(err);
-    });
 }
 
 export function deleteCardFromServer(cardId) {
@@ -83,9 +68,6 @@ export function deleteCardFromServer(cardId) {
     headers: config.headers,
   })
   .then(handleResponse)
-    .catch((err) => {
-      console.log(err);
-    });
 }
 
 export function putLikeToServer(cardId) {
@@ -94,9 +76,6 @@ export function putLikeToServer(cardId) {
     headers: config.headers,
   })
   .then(handleResponse)
-    .catch((err) => {
-      console.log(err);
-    });
 }
 
 export function deleteLikeToServer(cardId) {
@@ -105,7 +84,4 @@ export function deleteLikeToServer(cardId) {
     headers: config.headers,
   })
   .then(handleResponse)
-    .catch((err) => {
-      console.log(err);
-    });
 }

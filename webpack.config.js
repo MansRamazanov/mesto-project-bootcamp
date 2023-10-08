@@ -48,6 +48,15 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
-
+    new GhPagesWebpackPlugin({
+      path: './public',
+      options: {
+          message: 'Mesto',
+          user: {
+              name: 'Mans Ramazanov',
+              email: 'Mans-606@yandex.ru'
+          }
+      }
+  })
   ]
 } 
